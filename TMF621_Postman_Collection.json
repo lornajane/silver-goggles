@@ -1,13 +1,13 @@
 {
   "info": {
-    "name": "TMF621 Trouble Ticket API - Workshop",
-    "description": "Collection for hands-on workshop with TMF621 API. Replace {{baseUrl}} with your Railway deployment URL.",
+    "name": "TMF621 Trouble Ticket API",
+    "description": "# TMF621 Trouble Ticket API\n\nTM Forum TMF621 Trouble Ticket Management API implementation.\n\n## Configuration\n\nSet the `baseUrl` variable to your API deployment URL (no trailing slash).\n\nExample: `https://your-app.railway.app`\n\n## GitHub Repository\n\nhttps://github.com/lornajane/tmf621-app-demo\n\nFull source code and deployment instructions available.\n\n## API Documentation\n\nInteractive API documentation available at `/docs`",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://web-production-1651.up.railway.app/",
+      "value": "https://your-app.railway.app",
       "type": "string"
     },
     {
@@ -273,74 +273,6 @@
               "path": ["tmf-api", "troubleTicket", "v5", "troubleTicket", "{{ticketId}}"]
             },
             "description": "Delete a trouble ticket by ID"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Workshop Exercises",
-      "item": [
-        {
-          "name": "Exercise 1 - Create Your First Ticket",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"YOUR DESCRIPTION HERE - make it unique!\",\n  \"severity\": \"major\",\n  \"priority\": 2,\n  \"type\": \"trouble\",\n  \"channel\": \"web\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/tmf-api/troubleTicket/v5/troubleTicket",
-              "host": ["{{baseUrl}}"],
-              "path": ["tmf-api", "troubleTicket", "v5", "troubleTicket"]
-            },
-            "description": "Create your first ticket! Edit the description to make it unique."
-          }
-        },
-        {
-          "name": "Exercise 2 - Find Critical Tickets",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/tmf-api/troubleTicket/v5/troubleTicket?severity=critical",
-              "host": ["{{baseUrl}}"],
-              "path": ["tmf-api", "troubleTicket", "v5", "troubleTicket"],
-              "query": [
-                {
-                  "key": "severity",
-                  "value": "critical"
-                }
-              ]
-            },
-            "description": "Find all critical tickets - how many are there?"
-          }
-        },
-        {
-          "name": "Exercise 3 - Complete Workflow",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"Workshop Exercise: Blender lid not secured. Smoothie achieved flight. Ceiling now tropical.\",\n  \"severity\": \"major\",\n  \"priority\": 2,\n  \"type\": \"incident\",\n  \"channel\": \"phone\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/tmf-api/troubleTicket/v5/troubleTicket",
-              "host": ["{{baseUrl}}"],
-              "path": ["tmf-api", "troubleTicket", "v5", "troubleTicket"]
-            },
-            "description": "Step 1: Create ticket. Then copy the ID and update it to 'inProgress', then 'resolved'."
           }
         }
       ]
